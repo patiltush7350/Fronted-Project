@@ -7,35 +7,46 @@
     <title>addition of two numbers</title>
     <style>
         #container {
-            width: 300px;
-            margin: 50px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
-        }
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ecf0f1;
+    transition: background-color 0.3s ease-in-out;
+}
 
-        input[type="text"], input[type="button"] {
-            padding: 8px;
-            margin: 5px;
-        }
-        
-        input[type="button"] {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-        
-        input[type="button"]:hover {
-            background-color: #45a049;
-        }
-        
-        .answer {
-            font-weight: bold;
-            color: #333;
-        }
+input[type="text"], input[type="button"] {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #3498db;
+    border-radius: 3px;
+}
+
+input[type="button"] {
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+input[type="button"]:hover {
+    background-color: #2980b9;
+}
+
+.answer {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 18px;
+}
+
+/* Add a subtle animation to the container */
+#container:hover {
+    background-color: #d0e9fa;
+}
+
     </style>
 </head>
 <body>
