@@ -1,50 +1,63 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
 
-      * {
-        padding: 0%;
-        margin: 0%;
-        font-family: "Times New Roman", Times, serif;
-      }
-      div {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-      }
+.container {
+  text-align: center;
+}
 
-      h1 {
-        text-transform: capitalize;
-        margin-bottom: 10px;
-        border: 2px solid blue;
-        border-radius: 5px;
-        padding: 5px;
-        font-size: 1.5rem;
-      }
+h1 {
+  color: #333;
+}
 
-      textarea {
-        border: 2px solid blue;
-        border-radius: 10px;
-        outline: none;
-        font-size: 1.2rem;
-        padding: 10px 2px;
-        margin-bottom: 10px;
-        /* box-shadow: 0 0 4px 1px red; */
-        width: 400px;
-        height: 200px;
-        resize: none;
-      }
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+}
 
-      button {
-        padding: 7px 25px;
-        background-color: blue;
-        color: white;
-        border-radius: 10px;
-        /* border: 2px solid red; */
-        font-size: 1.2rem;
-      }
-      button:hover {
-        background-color: red;
-        padding: 7px 20px;
-        cursor: pointer;
-      }
- 
+textarea:focus {
+  border-color: #007bff;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#showchar, #showword {
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
