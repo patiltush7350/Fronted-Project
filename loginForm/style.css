@@ -14,9 +14,10 @@ body {
   align-items: center;
   min-height: 100vh;
   background: url("new-background.jpg") no-repeat center;
-  background-size: cover;
+  background-size: 100% 100%; /* Set the width and height to 100% */
   /* Add any additional styles you need for the body element */
 }
+
 
 
 header {
