@@ -9,12 +9,15 @@
 
 body {
   display: flex;
+  flex-direction: column; /* Change flex direction if needed */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background: url("new-background.jpg") no-repeat center;
   background-size: cover;
-  background: url("background.jpg") no-repeat center;
+  /* Add any additional styles you need for the body element */
 }
+
 
 header {
   position: fixed;
