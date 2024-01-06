@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Form</title>
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <section class="home" id="home">
+        <div class="vendor-form">
+            <h3>Vendor Form</h3>
+            <form action="vendor_form.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="vendor-name"><i class="fas fa-user"></i> Vendor Name:</label>
+                    <input type="text" id="vendor-name" name="vendor-name" required placeholder="Vendor Name">
+                </div>
+                <div class="form-group">
+                    <label for="vendor-office-address"><i class="fas fa-building"></i> Vendor Office Address:</label>
+                    <input type="text" id="vendor-office-address" name="vendor-office-address" required placeholder="Vendor Office Address">
+                </div>
+                <div class="form-group">
+                    <label for="product-pickup-address"><i class="fas fa-truck"></i> Product Pickup Address:</label>
+                    <input type="text" id="product-pickup-address" name="product-pickup-address" required placeholder="Product Pickup Address">
+                </div>
+                <div class="form-group">
+                    <label for="vendor-mobile"><i class="fas fa-phone"></i> Vendor Mobile #:</label>
+                    <input type="tel" id="vendor-mobile" name="vendor-mobile" required placeholder="Vendor Mobile">
+                </div>
+                <div class="form-group">
+                    <label for="vendor-email"><i class="fas fa-envelope"></i> Vendor Email:</label>
+                    <input type="email" id="vendor-email" name="vendor-email" required placeholder="Vendor Email">
+                </div>
+                <div class="form-group">
+                    <label for="pack-size"><i class="fas fa-balance-scale"></i> Pack Size (kg/ltr):</label>
+                    <input type="text" id="pack-size" name="pack-size" required placeholder="Pack Size">
+                </div>
+                <div class="form-group">
+                    <label for="mrp-sale-price"><i class="fas fa-tags"></i> MRP / Sale Price:</label>
+                    <input type="text" id="mrp-sale-price" name="mrp-sale-price" required placeholder="MRP / Sale Price">
+                </div>
+                <div class="form-group">
+                    <label for="price-to-chhayakart"><i class="fas fa-tags"></i> Price to Chhayakart:</label>
+                    <input type="text" id="price-to-chhayakart" name="price-to-chhayakart" required placeholder="Price to Chhayakart">
+                </div>
+                <div class="form-group">
+                    <label for="packing-type"><i class="fas fa-cube"></i> Packing Type:</label>
+                    <select id="packing-type" name="packing-type" required>
+                        <option value="box-packing">Box Packing</option>
+                        <option value="pouch-packing">Pouch Packing</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="product-name"><i class="fas fa-shopping-cart"></i> Product Name:</label>
+                     <input type="text" class="product-name-input" name="product-name[]" required placeholder="Product Name">
+                </div>
+                <div class="form-group">
+                    <label for="product-description"><i class="fas fa-file-alt"></i> Product Description:</label>
+                    <textarea name="product-description[]" required placeholder="Product Description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product-photo"><i class="fas fa-image"></i> Product Photo:</label>
+                    <div class="input-group">
+                        <input type="file" class="product-photo-input" name="product-photo[]" accept="image/*" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="add-product-button">Add Product</button>
+                    <div class="product-fields-container"></div>
+                </div>
+                <div class="form-group">
+                    <label for="food-license-no">
+                        <i class="fas fa-certificate"></i> Food Licence No. (If Required):
+                    </label>
+                    <input type="text" id="food-license-no" name="food-license-no">
+                </div>
+                <div class="form-group">
+                    <div class="label-left">
+                        <label for="contract-file">
+                            <i class="fas fa-download"></i> Download the Contract:
+                        </label>
+                        <a href="File/Chhayakart Vendor Agreement.pdf" id="download-button" class="btn btn2">Download Contract</a>
+                    </div>
+                    <div class="label-right">
+                        <label for="signed-contract-upload-link">
+                            <i class="fas fa-upload"></i> Signed Contract Upload:
+                        </label>
+                        <input type="file" id="signed-contract-upload-link" name="signed-contract-upload-link" accept=".pdf" required>
+                    </div>
+                </div>
+                
+                
+                <!-- Rest of the form code -->
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="image">
+            <img src="./images/home-img.png" alt="">
+        </div> 
+        <div class="loader-container">
+            <img src="images/loader.gif" alt="">
+        </div>
+    </section> 
+    <script>
+          const addProductButton = document.querySelector('.add-product-button');
+const productFieldsContainer = document.querySelector('.product-fields-container');
+let productCount = 1; // Initialize the product count
+
+addProductButton.addEventListener('click', () => {
+    const productFields = document.createElement('div');
+    productFields.className = 'product-fields';
+
+    const productNameInput = document.createElement('input');
+    productNameInput.type = 'text';
+    productNameInput.name = 'product-name[]';
+    productNameInput.required = true;
+    productNameInput.placeholder = 'Product Name ' + productCount; // Add product number to the placeholder
+
+    const priceToChhayakartInput = document.createElement('input');
+    priceToChhayakartInput.type = 'text';
+    priceToChhayakartInput.id = 'price-to-chhayakart';
+   priceToChhayakartInput.name = 'price-to-chhayakart';
+   priceToChhayakartInput.required = true;
+   priceToChhayakartInput.placeholder = 'Price to Chhayakart';
+    
+    const productDescriptionTextarea = document.createElement('textarea');
+    productDescriptionTextarea.name = 'product-description[]';
+    productDescriptionTextarea.required = true;
+    productDescriptionTextarea.placeholder = 'Product Description';
+
+    const productPhotoInput = document.createElement('input');
+    productPhotoInput.type = 'file';
+    productPhotoInput.className = 'product-photo-input';
+    productPhotoInput.name = 'product-photo[]';
+    productPhotoInput.accept = 'image/*';
+    productPhotoInput.required = true;
+
+    const removeProductButton = document.createElement('button');
+    removeProductButton.className = 'remove-product-button';
+    removeProductButton.innerText = 'Remove Product';
+    removeProductButton.addEventListener('click', () => {
+        productFields.remove();
+    });
+
+    productFields.appendChild(productNameInput);
+    productFields.appendChild(priceToChhayakartInput);
+    productFields.appendChild(productDescriptionTextarea);
+    productFields.appendChild(productPhotoInput);
+    productFields.appendChild(removeProductButton);
+
+    productFieldsContainer.appendChild(productFields);
+    
+    productCount++; // Increment the product count
+});
+
+        function loader(){
+  document.querySelector('.loader-container').classList.add('fade-out');
+}
+
+function fadeOut(){
+  setInterval(loader, 3000);
+}
+
+window.onload = fadeOut(); 
+
+    </script>
+</body>
+</html>
